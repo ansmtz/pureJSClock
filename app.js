@@ -27,13 +27,10 @@ const getCurrentDate = () => {
 }
 
 const drawCurrentDate = ({ hours, minutes, seconds, day, date, month }) => {
-    if(seconds === 59){
-        dom.dots.forEach(dot => dot.classList.toggle('flip'));
-    }
     dom.hours.innerText = hours.toString().padStart(2, "0");
     dom.minutes.innerText = minutes.toString().padStart(2, "0");
     dom.day.children[0].innerText = showDay(day, date, month);
-}
+};
 
 window.addEventListener('load', () => {
     drawCurrentDate(getCurrentDate());

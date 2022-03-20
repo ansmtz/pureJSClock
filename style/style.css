@@ -1,9 +1,12 @@
+/* reset */
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
 
+
+/* theme */
 :root {
     --bg: #EFFFFD;
     --checkbox-bg: #B8FFF9; 
@@ -20,16 +23,16 @@
     --gradient: linear-gradient(to right, #c5c7c5, #e6ebe6);
 }
 
+
 body {
-    font-family: 'Rubik', sans-serif;
-    height: 100vh;
-    overflow: hidden;
-    /* background-color: #EFEFEF; */
-    background-color: var(--bg);
-    color: var(--primary-color);
     display: flex;
     flex-direction: column;
     position: relative;
+    font-family: 'Rubik', sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    background-color: var(--bg);
+    color: var(--primary-color);
 }
 
 a {
@@ -44,6 +47,9 @@ a {
     align-items: center;
 }
 
+
+/* checkbox */
+
 .checkbox {
     display: none;
 }
@@ -57,31 +63,22 @@ a {
     cursor: pointer;
 }
 
-.checkbox:checked~.custom-checkbox {
-    background-color: black;
-}
-
 .custom-checkbox::after {
+    display: block;
     content: "";
     position: absolute;
     width: 2rem;
     height: 2rem;
     border-radius: 100%;
-    background: var(--accent-color) url("./sun.svg");
-    background-position: center;
-    background-size: 60%;
-    background-repeat: no-repeat;
-    top:0;
+    background: var(--accent-color) url("/img/sun.svg") no-repeat center/60%;
+    top: 0;
     right: 0;
-    transition: all 1.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: transform 1.5s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .checkbox:checked~.custom-checkbox::after {
     transform: translateX(-100%);
-    background: var(--accent-color) url('./night.svg');
-    background-position: center;
-    background-size: 60%;
-    background-repeat: no-repeat;
+    background: var(--accent-color) url('/img/night.svg') no-repeat center/60%;
 }
 
 .main {
@@ -90,8 +87,10 @@ a {
     justify-content: center;
     align-items: center;
 }
+
+
 .clock {
-    color: #fff;
+    color: var(--accent-color);
     text-transform: uppercase;
     background: var(--gradient);
     background-clip: text;
@@ -113,15 +112,6 @@ a {
     font-weight: 700;
 }
 
-.seconds-container {
-    position: absolute;
-    top: 2rem;
-    right: 3rem;
-    width: 5rem;
-    z-index: -1;
-    overflow: hidden;
-}
-
 .clock-dots {
     display: flex;
     flex-direction: column;
@@ -133,7 +123,7 @@ a {
     width: 2rem;
     height: 2rem;
     background: var(--gradient);
-    animation: test 1s cubic-bezier(0.215, 0.610, 0.355, 1) forwards infinite;
+    animation: pulse 1s cubic-bezier(0.215, 0.610, 0.355, 1) forwards infinite;
     transition: all 2s linear;
 }
 
@@ -141,7 +131,6 @@ a {
     .clock-time {
         font-size: 4rem;
         gap: 1rem;
-        font-weight: 900;
     } 
     .clock-dots {
         gap: .5rem;
@@ -150,17 +139,7 @@ a {
         border-radius: .4rem;
         width: 1rem;
         height: 1rem;
-        background: var(--gradient);
-        animation: test 1s cubic-bezier(0.215, 0.610, 0.355, 1) forwards infinite;
-        transition: all 2s linear;
     }
-}
-
-.seconds-value {
-    font-weight: 700;
-    color: rgba(49, 97, 175, 0.4);
-    font-size: 4rem;
-    animation: test 1s cubic-bezier(0,.76,.92,.14) forwards infinite;
 }
 
 .footer {
@@ -169,12 +148,7 @@ a {
     text-align: center;
 }
 
-.flip {
-    transform: rotate(360deg);
-}
-
-
-@keyframes test {
+@keyframes pulse {
     0%{
         /* transform: translateX(100%); */
         /* opacity: 0; */
