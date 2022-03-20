@@ -70,7 +70,7 @@ a {
     width: 2rem;
     height: 2rem;
     border-radius: 100%;
-    background: var(--accent-color) url("/img/sun.svg") no-repeat center/60%;
+    background: var(--accent-color) url("./img/sun.svg") no-repeat center/60%;
     top: 0;
     right: 0;
     transition: transform 1.5s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -78,7 +78,7 @@ a {
 
 .checkbox:checked~.custom-checkbox::after {
     transform: translateX(-100%);
-    background: var(--accent-color) url('/img/night.svg') no-repeat center/60%;
+    background: var(--accent-color) url('./img/night.svg') no-repeat center/60%;
 }
 
 .main {
