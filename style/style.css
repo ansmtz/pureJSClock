@@ -73,7 +73,6 @@ a {
     background: var(--accent-color) url("../img/sun.svg") no-repeat center/60%;
     top: 0;
     right: 0;
-    transition: transform 1.5s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .checkbox:checked~.custom-checkbox::after {
@@ -88,14 +87,9 @@ a {
     align-items: center;
 }
 
-
 .clock {
     color: var(--accent-color);
     text-transform: uppercase;
-    background: var(--gradient);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 
 .clock-time {
